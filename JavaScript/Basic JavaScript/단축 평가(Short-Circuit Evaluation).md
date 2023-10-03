@@ -1,13 +1,9 @@
----
-Created: 2023-09-28 15:36
-Modified: 2023-09-28 15:35
----
 # 단축 평가(Short-Circuit Evaluation)
 ---
-## Summary
-> [[표현식(Expression)]]을 평가하는 도중에 평가 결과가 확정된 경우 나머지 평가 과정을 생략하는 것을 말한다.
-## Description
-### 논리 연산자를 사용한 단축 평가
+## 📌 Summary
+> 표현식(Expression)을 평가하는 도중에 평가 결과가 확정된 경우 나머지 평가 과정을 생략하는 것을 말한다.
+## 📌 Description
+### ◉ 논리 연산자를 사용한 단축 평가
 - 논리곱(`&&`) 연산자와 논리합(`||`) 연산자는 논리 연산의 결과를 결정하는 피연산자를 타입 변환하지 않고 그대로 반환한다. 이를 단축 평가라 한다.
 - 단축 평가는 다음 규칙을 따른다:
 <table>
@@ -75,7 +71,7 @@ message = done || '미완료';
 console.log(message); // 미완료
 ```
 
-#### 객체를 가리키는 변수가 `null` 또는 `undefined`가 아닌지 확인하고 프로퍼티를 참조할 때
+#### ▪︎ 객체를 가리키는 변수가 `null` 또는 `undefined`가 아닌지 확인하고 프로퍼티를 참조할 때
 - 객체를 가리키는 변수의 값이 객체가 아닌 `null` 또는 `undefined`인 경우 타입 에러(TypeError)가 발생한다. 에러가 발생하면 프로그램은 강제 종료된다.
 	- 이때 단축 평가를 사용하면 에러를 발생시키지 않는다.
 ```js
@@ -86,7 +82,7 @@ let value = elem.value; // TypeError: Cannot read property 'value' of null
 let value = elem && elem.value; // null
 
 ```
-#### 함수 매개변수에 기본값을 설정할 때
+#### ▪︎ 함수 매개변수에 기본값을 설정할 때
 - 함수를 호출할 때 인수를 전달하지 않으면 매개변수에는 `undefined`가 할당된다.
 	- 이때 단축 평가를 사용해 매개변수의 기본값을 설정하면 `undefined로` 인해 발생할 수 있는 에러를 방지할 수 있다.
 ```js
@@ -108,7 +104,7 @@ getStringLength(); // 0
 getStringLength('hi'); // 2
 ```
 
-### 옵셔널 체이닝(Optional Chaining) 연산자 `?.`
+### ◉ 옵셔널 체이닝(Optional Chaining) 연산자 `?.`
 - ES11(ECMAScript2020)에서 도입된 옵셔널 체이닝 연산자는 좌항의 피연산자가 `null` 또는 `undefined`인 경우 `undefined`를 반환하고, 그렇지 않으면 우항의 프로퍼티 참조를 이어간다.
 ```js
 let elem = null;
@@ -136,7 +132,7 @@ let length = str?.length;
 console.log(length); // 0
 ```
 
-### null 병합(nullish coalescing) 연산자 `??`
+### ◉ null 병합(nullish coalescing) 연산자 `??`
 - ES11에서 도입된 null 병합 연산자는 좌항의 피연산자가 `null` 또는 `undefined`인 경우 우항의 피연산자를 반환하고, 그렇지 않으면 좌항의 피연산자를 반환한다. 
 - null 병합 연산자는 변수에 기본값을 설정할 때 유용하다.
 ```js
@@ -154,5 +150,5 @@ console.log(foo); // "default string"
 let foo = '' ?? 'default string';
 console.log(foo); // ""
 ```
-## Reference
+## 📌 Reference
 - "모던 자바스크립트 Deep Dive" by 이웅모, p.118-123

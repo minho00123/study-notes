@@ -1,12 +1,7 @@
----
-Created: 2023-09-24 09:59
-Modified: 2023-09-24 09:48
----
-
 # 공백(White Space)
 ---
 ## Description
-- 코드의 가독성을 향상시키고 [[토큰(Token)]]을 서로 구분하는 데 자주 사용된다.
+- 코드의 가독성을 향상시키고 토큰(Token)을 서로 구분하는 데 자주 사용된다.
 - 일반적으로 코드 기능에는 필요하지 않다.
 - White Space 문자와 사용법은 컴퓨터 언어마다 다르다.
 ## Examples
@@ -75,4 +70,3 @@ Modified: 2023-09-24 09:48
 ## Reference
 - https://developer.mozilla.org/en-US/docs/Glossary/Whitespace
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators
-[[Lexical Grammar|]]

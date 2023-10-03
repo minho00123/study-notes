@@ -1,18 +1,14 @@
----
-Created: 2023-09-25 20:07
-Modified: 2023-09-25 20:06
----
----
 # continue 문
-## Summary
+---
+## 📌 Summary
 > 반복문의 코드 블록 실행을 현 지점에서 중단한다.
-## Syntax
+## 📌 Syntax
 ```js
 continue [label];
 ```
 
 - `label`: 레이블에 연결한 식별자
-### Error
+### ◉ Error
 - 반복문 안에 있는 함수에서는 사용할 수 없다.
 ```js
 for (let i = 0; i < 10; i++) {
@@ -39,14 +35,14 @@ label: {
   }
 }
 ```
-## Description
+## 📌 Description
 - `break`문과는 다르게 반복문을 탈출하지는 않는다.
     - `while`, `do...while`문에서는 조건식으로 넘어간다.
     - `for` 문에서는 update expression(증감식)으로 넘어간다.
     - `for...in`, `for...of`,`for await...of`문에서는 다음 반복문으로 넘어간다.
 - `label`문에서 `continue`문을 사용할 때는 `label`문 안에 있어야 한다.
 - 어떠한 경우라도 스크립트 최상단에서는 사용할 수 없다.
-## Examples
+## 📌 Examples
 - `while`문에서의 활용
 ```js
 let i = 0;
@@ -113,6 +109,6 @@ checkIAndJ: while (i < 4) {
 	j = 4
 */
 ```
-## Reference
+## 📌 Reference
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue
 - "모던 자바스크립트 Deep Dive" by 이웅모, p.106-107

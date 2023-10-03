@@ -1,19 +1,15 @@
----
-Created: 2023-09-25 18:13
-Modified: 2023-09-25 18:13
----
----
 # typeof
-## Summary
+---
+## 📌 Summary
 > 주어진 값의 자료형을 나타내는 문자열을 반환한다.
-## Syntax
+## 📌 Syntax
 ``` js
 typeof operand;
 typeof (operand);
 ```
-### Parameter
+### ◉ Parameter
 - `operand`: 자료형을 가져올 객체 또는 원시값을 나타내는 표현식
-### Return Value
+### ◉ Return Value
 |      Type      |   Result    |
 |:--------------:|:-----------:|
 |   Undefined    | `undefined` |
@@ -25,7 +21,7 @@ typeof (operand);
 |     Symbol     |  `symbol`   |
 |    Function    | `function`  |
 | 다른 모든 객체 |  `object`   |
-## Examples
+## 📌 Examples
 ``` js
 // Numbers
 typeof 37 === "number";
@@ -77,6 +73,5 @@ typeof function () {} === "function";
 typeof class C {} === "function";
 typeof Math.sin === "function";
 ```
-## Reference
+## 📌 Reference
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
-[[예약어(Reserved Word)|]]

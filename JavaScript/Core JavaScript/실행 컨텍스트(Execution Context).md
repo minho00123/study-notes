@@ -1,59 +1,55 @@
----
-Created: 2023-09-23 20:56
-Modified: 2023-09-23 20:56
----
 # 실행 컨텍스트(Execution Context)
 ---
-## Summary
-> [[자바스크립트(JavaScript)]]의 동작 원리는 담고 있는 핵심 개념
-## Description
-- [[소스 코드(Source Code)]]를 실행하는 데 필요한 환경을 제공하고, 코드의 실행 결과를 관리하는 영역이다.
-	- 식별자를 등록하고, [[스코프(Scope)|스코프]]와 코드의 실행 순서를 관리한다.
+## 📌 Summary
+> 자바스크립트의 동작 원리는 담고 있는 핵심 개념
+## 📌 Description
+- 소스 코드를 실행하는 데 필요한 환경을 제공하고, 코드의 실행 결과를 관리하는 영역이다.
+	- 식별자를 등록하고, 스코프와 코드의 실행 순서를 관리한다.
 	- 식별자와 스코프는 렉시컬 환경으로 관리하고, 코드 실행 순서는 실행 컨텍스트 스택으로 관리한다.
 - 모든 코드는 실행 컨텍스트가 활성화 상태일 때 실행된다.
-### 실행 컨텍스트 스택(Call Stack)
+### ◉ 실행 컨텍스트 스택(Call Stack)
 - 실행할 코드에 제공할 환경 정보들을 모아 놓은 객체
 - 소스 코드를 실행하면 스택 자료구조로 관리되는데, 이를 실행 컨텍스트 스택이라고 부른다.
 - 코드의 실행 순서를 관리한다.
 	- 소스 코드가 평가되면 실행 컨텍스트가 생성되고 실행 컨텍스트 스택의 최상위에 쌓인다.
 	- 스택 최상위에 있는 실행 컨텍스트를 Running Execution Context라 한다.
-### 실행 컨텍스트 구성요소
-#### Variable Environment
+### ◉ 실행 컨텍스트 구성요소
+#### ▪︎ Variable Environment
 - 식별자들에 대한 정보와 외부 환경 정보, 그리고 선언 시점의 LexicalEnvironment의 스냅샷이다.
 - LexicalEnvironment의 담기는 내용과 같지만, 변경 사항이 반영되지 않는다.
 	- 실행 컨텍스트를 생성하면 VariableEnvironment에 먼저 담은 다음, 이를 그대로 복사해서 LexicalEnvironment를 만든다.
 - environmentRecord와 outerEnvrionmentReference로 구성되어 있다.
-#### LexicalEnvironment
+#### ▪︎ LexicalEnvironment
 - 스코프와 식별자를 관리한다.
 	- 식별자와 식별자에 바인딩된 값, 그리고 상위 스코프에 대한 참조를 기록하는 자료구조다.
 	- 키와 값을 갖는 객체 형태의 스코프(전역, 함수, 블록 스코프)를 생성하여 식별자를 키로 등록하고 식별자에 바인딩된 값을 관리한다.
 - VariableEnvironment와는 다르게 변경 사항이 실시간으로 반영된다.
-##### environmentRecord
+##### - environmentRecord
 - 식별자를 등록하고, 등록된 식별자에 바인딩된 값을 관리하는 저장소다.
 - 소스 코드 타입에 따라 관리하는 내용이 달라진다.
-##### outerEnvironmentReference
-- 단방향 [[연결 리스트(Linked List)]] 형태를 가지며, 하위 → 상위 스코프를 가리킨다.
+##### - outerEnvironmentReference
+- 단방향 연결 리스트 형태를 가지며, 하위 → 상위 스코프를 가리킨다.
 	- 이를 **스코프 체인(Scope Chain)** 이라고 한다.
 	- Inner 함수에서 변수를 선언하고, 동일한 이름으로 전역 공간에 변수 선언을 하면 전역 변수에는 접근할 수 없다. 이를 변수 은닉화(Variable Shadowing)라 한다.
 		- 이런 구조적 특성 덕분에 여러 스코프에서 동일한 식별자를 선언한 경우에는 무조건 스코프 체인 상에서 가장 먼저 발견된 식별자에만 접근 가능하게 된다.
-### Global Environment Record
+### ◉ Global Environment Record
 - 실행 컨텍스트가 실행되면 자동으로 생성된다.
-- 자바스크림트 구동 환경이 별도로 제공하는 객체인 [[전역 객체]]를 활용한다. 
-##### Object Environment Record
-- [[var]] 키워드로 선언한 전역 변수와 함수 선언문으로 정의한 전역 함수, 빌트인 전역 프로퍼티와 빌트인 전역 함수, 표준 빌트인 객체를 관리한다.
+- 자바스크림트 구동 환경이 별도로 제공하는 객체인 전역 객체를 활용한다. 
+##### - Object Environment Record
+- var 키워드로 선언한 전역 변수와 함수 선언문으로 정의한 전역 함수, 빌트인 전역 프로퍼티와 빌트인 전역 함수, 표준 빌트인 객체를 관리한다.
 - BindingObject라는 객체와 연결되어 있다.
 	- 전역 코드 평가 과정에서 `var` 키워드로 선언한 전역 변수와 함수 선언문으로 정의된 전역 함수는 BindingObject를 통해 전역 객체의 프로퍼티와 메서드가 된다.
 	- 따라서 `var` 키워드로 선언한 전역 변수와 함수 선언문으로 정의된 전역 함수는 전역 객체의 프로퍼티와 메서드가 된다.
 - BindingObject는 `var` 키워드로 생성된 전역 변수를 전역 객체에 변수 식별자를 키로 등록하고, 암묵적으로 `undefined`를 바인딩한다.
 	- 이로 인해 변수 호이스팅이 발생한다.
-##### Declarative Environment Record
-- [[let]], [[const]] 키워드로 선언한 전역 변수를 관리한다.
+##### - Declarative Environment Record
+- let, const 키워드로 선언한 전역 변수를 관리한다.
 - 전역 객체의 프로퍼티가 되지 않고, 런타임 실행 흐름이 변수 선언문에 도달하기 전까지 일시적 사각지대(TDZ; Temporal Dead Zone)에 빠지게 된다.
-### ThisBinding
-- [[this]]로 지정된 객체가 저장된다.
+### ◉ ThisBinding
+- this로 지정된 객체가 저장된다.
 - 실행 컨텍스트 활성화 당시에 `this`가 지정되지 않으면 전역 객체가 저장된다.
 
-## Reference
+## 📌 Reference
 - https://262.ecma-international.org/14.0/
 - "모던 자바스크립트 Deep Dive" by 이웅모, p.359-360
 - "코어 자바스크립트" by 정재남, p.36-64

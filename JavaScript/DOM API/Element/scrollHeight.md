@@ -1,19 +1,15 @@
----
-Created: 2023-09-22 08:55
-Modified: 2023-09-22 08:54
----
 # scrollHeight
 ---
-## Summary
+## 📌 Summary
 > Overflow로 인해 화면에 나타나지 않는 content를 포함하여 element content의 높이를 측정하는 읽기 전용 property다.
-## Description
+## 📌 Description
 - `scrollHeight` 값은 세로 스크롤바를 사용하지 않고 뷰포트의 모든 content에 맞추기 위해 element에 필요한 최소 높이와 같다.
 - 값에 padding, psuedo-element(ex.`::before`) 은 포함하지만 border, margin, 또는 가로 스크롤바는 포함되지 않는다.
-- [[scrollTop]]은 값이 반올림되지 않지만, `scrollHeight`는 반올림되기 때문에 스크롤 영역이 아래쪽으로 스크롤되었는지 확인하는 유일한 방법은 스크롤 양이 특정 임계값에 충분히 근접했는지 확인하는 것 뿐이다.
-```jsx
+- scrollTop은 값이 반올림되지 않지만, `scrollHeight`는 반올림되기 때문에 스크롤 영역이 아래쪽으로 스크롤되었는지 확인하는 유일한 방법은 스크롤 양이 특정 임계값에 충분히 근접했는지 확인하는 것 뿐이다.
+```js
 Math.abs(element.scrollHeight - element.clientHeight - element.scrollTop) < 1;
 ```
-## Examples
+## 📌 Examples
 ```html
 <form name="registration">
   <p>
@@ -95,5 +91,5 @@ onload = () => {
   checkReading.call(oToBeRead);
 };
 ```
-## Reference
+## 📌 Reference
 - https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight

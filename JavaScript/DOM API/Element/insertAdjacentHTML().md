@@ -1,16 +1,12 @@
----
-Created: 2023-09-22 08:14
-Modified: 2023-09-22 08:14
----
----
 # insertAdjacentHTML()
-## Summary
+---
+## 📌 Summary
 > 문자열로 작성된 HTML 또는 XML을 parsing하고, 지정된 위치에 DOM 트리를 삽입한다.
-## Syntax
-```jsx
+## 📌 Syntax
+```js
 insertAdjacentHTML(position, text)
 ```
-### Parameter
+### ◉ Parameter
 - `position`: 요소를 기준으로 위치를 나타내는 문자열. 다음 4가지 중 하나를 입력해야 한다:
 	1. `"beforebegin"`: 요소 앞. 요소가 DOM 트리에 있고, 부모 요소가 있는 경우에만 유효하다.
 	2. `"afterbegin"`: 첫 번째 자식 요소 앞에 위치한다.
@@ -25,18 +21,18 @@ insertAdjacentHTML(position, text)
 </p>
 <!-- afterend -->
 ```
-- `text`:  HTML 또는 XML을 [[Parsing]]하여 DOM tree에 삽입할 문자열
+- `text`:  HTML 또는 XML을 Parsing하여 DOM tree에 삽입할 문자열
 
-### Return Value
+### ◉ Return Value
 - None(`undefined`)
-## Description
+## 📌 Description
 - 호출된 요소를 다시 parsing하지 않기 때문에 기존 요소를 손상시키지 않는다.
 	- 따라서 직렬화의 추가 단계를 피하므로 `innerHTML`보다 훨씬 빠르다.
 - HTML을 삽입할 때, 이스케이프 문자열을 사용하면 안된다.
 - 일반 텍스트를 삽입할 때는 `Node.textContent` 또는 `Element.insertAdjacentText()`를 사용해야 한다.
 	-  `insertAdjacentHTML`은 일반 텍스트를 HTML로 해석하지 않고 원시 텍스트로 인식한다.
-## Examples
-```jsx
+## 📌 Examples
+```js
 const insert = document.querySelector("#insert");
 insert.addEventListener("click", () => {
   const subject = document.querySelector("#subject");
@@ -51,5 +47,5 @@ reset.addEventListener("click", () => {
   document.location.reload();
 });
 ```
-## Reference
+## 📌 Reference
 - https://developer.mozilla.org/ko/docs/Web/API/Element/insertAdjacentHTML

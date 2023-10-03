@@ -1,15 +1,10 @@
----
-Created: 2023-09-24 09:51
-Modified: 2023-09-24 09:51
----
-
 # Line Terminator
 ---
-## Description
+## 📌 Description
 - Source Text의 가독성을 높이기 위해 사용된다.
 - Line Terminator가 금지된 곳이 있기 때문에 JavaScript 코드 실행에 영향을 줄 수 있다.
 - Line Terminator는 세미콜론 자동 삽입 기능에도 영향을 준다.
-## Examples
+## 📌 Examples
 <table>
   <thead>
     <tr>
@@ -52,5 +47,5 @@ Modified: 2023-09-24 09:51
   </tbody>
 </table>
 
-## Reference
+## 📌 Reference
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators
